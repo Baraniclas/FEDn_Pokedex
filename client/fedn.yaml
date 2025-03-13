@@ -1,0 +1,10 @@
+entry_points:
+  startup:
+    command: python data.py
+  build:
+    command: python model.py
+  train:
+    command: python train.py
+  validate:
+    command: python validate.py
+    
