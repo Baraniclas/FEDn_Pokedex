@@ -88,6 +88,8 @@ def train(in_model_path, out_model_path, data_path=None, batch_size=10, epochs =
 
     save_metadata(metadata, out_model_path)
 
+    save_parameters(model, out_model_path)
+
 
 if __name__ == "__main__":
     train(sys.argv[1], sys.argv[2])

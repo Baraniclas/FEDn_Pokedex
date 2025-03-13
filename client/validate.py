@@ -26,7 +26,7 @@ def validate(in_model_path, out_json_path, data_path=None):
     x_test, y_test = load_data(is_train = False)
 
     model = load_parameters(in_model_path)
-    model.evel()
+    model.eval()
 
     criterion = torch.nn.MSELoss()
 
