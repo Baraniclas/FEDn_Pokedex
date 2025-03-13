@@ -14,8 +14,7 @@ def load_data(is_train=True):
     :rtype: torch.tensor
     """
 
-    " change to /app/data/water.csv "
-    data_path = '/home/baraniclas/FEDn_Pokedex/data/water.csv'
+    data_path = '/app/FEDn_Pokedex/data/water.csv'
 
     water = pd.read_csv(data_path)
 
