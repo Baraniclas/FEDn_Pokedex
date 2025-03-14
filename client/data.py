@@ -1,5 +1,6 @@
 import pandas as pd
 import torch
+import os
 
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
@@ -13,8 +14,8 @@ def load_data(is_train=True):
     :return: Tensor of data and target.
     :rtype: torch.tensor
     """
-
-    data_path = '/app/FEDn_Pokedex/data/water.csv'
+    file_name = os.environ.get("FILE_NAME")
+    data_path = os.path.join('/app/data', file_name)
 
     water = pd.read_csv(data_path)
 
