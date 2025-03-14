@@ -1,20 +1,35 @@
 x-client-common: &client-common
   build: .
   image: fedn:latest
-  env_file:
-    - secrets.env
-  command: ["tail", "-f", "/dev/null"]
-services:
-  client1:
-    <<: *client-common
-    volumes:
-      - ./data/water.csv:/app/data/water.csv
-    environment:
-      - FILE_NAME=water.csv
+  command: ["bash", "-c", "fedn client start --api-url ${API} --token ${CLIENT_TOKEN}"]
 
-  client2:
+services:
+  water1:
     <<: *client-common
     volumes:
-      - ./data/grass.csv:/app/data/grass.csv
+      - ./data/water1.csv:/app/data/water1.csv
     environment:
-      - FILE_NAME=grass.csv
+      - FILE_NAME=water1.csv
+
+  water2:
+    <<: *client-common
+    volumes:
+      - ./data/water2.csv:/app/data/water2.csv
+    environment:
+      - FILE_NAME=water2.csv
+
+  grass1:
+    <<: *client-common
+    volumes:
+      - ./data/grass1.csv:/app/data/grass1.csv
+    environment:
+      - FILE_NAME=grass1.csv
+
+  grass2:
+    <<: *client-common
+    volumes:
+      - ./data/grass2.csv:/app/data/grass2.csv
+    environment:
+      - FILE_NAME=grass2.csv
+
+      
