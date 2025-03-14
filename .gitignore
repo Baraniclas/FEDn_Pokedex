@@ -2,3 +2,4 @@ myenv/
 *.npz
 *.tgz
 secrets.*
+.env
