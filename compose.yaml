@@ -1,0 +1,20 @@
+x-client-common: &client-common
+  build: .
+  image: fedn:latest
+  env_file:
+    - secrets.env
+  command: ["tail", "-f", "/dev/null"]
+services:
+  client1:
+    <<: *client-common
+    volumes:
+      - ./data/water.csv:/app/data/water.csv
+    environment:
+      - FILE_NAME=water.csv
+
+  client2:
+    <<: *client-common
+    volumes:
+      - ./data/grass.csv:/app/data/grass.csv
+    environment:
+      - FILE_NAME=grass.csv
