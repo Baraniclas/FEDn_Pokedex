@@ -1,4 +1,4 @@
 myenv/
 *.npz
 *.tgz
-secrets.json
+secrets.*
