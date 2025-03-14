@@ -7,9 +7,6 @@ RUN apt-get update && apt-get install -y git
 # set work directory
 WORKDIR /app
 
-# fetch data
-COPY /data/water.csv .
-
 # Copy evironment.yml into image
 COPY environment.yml .
 
