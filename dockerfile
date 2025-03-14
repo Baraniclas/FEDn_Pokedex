@@ -4,11 +4,14 @@ FROM pytorch/pytorch:2.6.0-cuda12.6-cudnn9-runtime
 # Install Git
 RUN apt-get update && apt-get install -y git
 
-# Install dependencies
-RUN pip install --no-cache-dir fedn
-
 # set work directory
 WORKDIR /app
 
 # fetch data
 COPY /data/water.csv .
+
+# Copy evironment.yml into image
+COPY environment.yml .
+
+# Update the conda environment in the base image with the dependencies in the environment.yml
+RUN conda env update --file environment.yml --name base
