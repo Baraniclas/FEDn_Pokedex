@@ -17,10 +17,10 @@ def load_data(is_train=True):
     file_name = os.environ.get("FILE_NAME")
     data_path = os.path.join('/app/data', file_name)
 
-    water = pd.read_csv(data_path)
+    df = pd.read_csv(data_path)
 
-    X = water.drop(columns=['Speed', 'Name', 'Unnamed: 0'])
-    y = water['Speed']
+    X = df.drop(columns=['Speed', 'Name', 'Unnamed: 0'])
+    y = df['Speed']
 
     scaler = MinMaxScaler()
     X_scaled = scaler.fit_transform(X)
