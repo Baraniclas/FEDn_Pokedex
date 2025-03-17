@@ -3,3 +3,4 @@ myenv/
 *.tgz
 secrets.*
 .env
+server_functions.py
